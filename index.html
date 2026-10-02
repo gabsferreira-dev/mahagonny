@@ -84,9 +84,9 @@ p{margin:0}
 .page-head{display:grid;gap:14px;max-width:62ch;margin-bottom:clamp(32px,5vw,56px)}
 .page-head h1{font-size:clamp(2.5rem,6vw,4.4rem);font-weight:800;font-style:italic;letter-spacing:-.01em}
 .page-head p{color:var(--muted);font-size:1.12rem}
-.section-title{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:18px;margin:56px 0 26px}
+.section-title{display:grid;gap:8px;border-top:1px solid var(--line);padding-top:18px;margin:56px 0 26px}
 .section-title h2{font-size:clamp(1.6rem,3vw,2.2rem);font-style:italic;font-weight:700}
-.section-title p{color:var(--muted);max-width:60ch;flex:1 1 280px}
+.section-title p{color:var(--muted);max-width:62ch;font-size:1.05rem}
 .credit{font:400 .78rem/1.4 var(--f-type);color:var(--muted);letter-spacing:.04em}
 
 /* ---------- Início ---------- */
@@ -221,15 +221,21 @@ p{margin:0}
 .foot p{color:var(--muted);font-size:.92rem;max-width:52ch}
 
 /* ---------- Currículo (modal) ---------- */
-dialog{border:0;padding:0;max-width:min(980px,calc(100vw - 32px));width:100%;max-height:calc(100dvh - 32px);background:var(--ink);color:var(--fg);border-radius:var(--r);box-shadow:0 30px 80px rgba(0,0,0,.7);overflow:hidden}
+dialog{border:0;padding:0;max-width:min(980px,calc(100vw - 32px));width:100%;max-height:calc(100dvh - 32px);background:var(--ink);color:var(--fg);border-radius:var(--r);box-shadow:0 30px 80px rgba(0,0,0,.7);overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--blood) transparent}
 dialog::backdrop{background:rgba(8,4,3,.82);backdrop-filter:blur(3px)}
-.cv{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);max-height:calc(100dvh - 32px)}
-.cv-photo{background:var(--rose);position:relative;min-height:100%}
+body.cv-open{overflow:hidden}
+.cv{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:start}
+.cv-photo{background:var(--rose);position:sticky;top:0;height:calc(100dvh - 32px);max-height:760px;overflow:hidden}
 .cv-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .cv-photo .mono{position:absolute;inset:0;display:grid;place-items:center;font:800 italic 6rem/1 var(--f-display);color:var(--rose);background:var(--curtain)}
 .cv-photo .tag{position:absolute;left:50%;bottom:22px;transform:translateX(-50%) rotate(-1.5deg);padding:9px 24px 11px;text-align:center;white-space:nowrap}
 .cv-photo .tag b{font:800 italic 1.6rem/1 var(--f-display);text-transform:uppercase}
-.cv-body{overflow:auto;padding:clamp(24px,4vw,44px);display:grid;gap:16px;align-content:start}
+.cv-bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:14px;padding:12px clamp(20px,4vw,44px) 12px;background:rgba(20,11,9,.94);backdrop-filter:blur(6px);border-bottom:1px solid transparent;transition:border-color .2s}
+.cv-bar.stuck{border-bottom-color:var(--line)}
+.cv-mini{flex:1;min-width:0;font:700 italic 1.1rem/1.2 var(--f-display);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s}
+.cv-bar.stuck .cv-mini{opacity:1;transform:none}
+.cv-progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--blood-hi);transform-origin:left;transform:scaleX(0)}
+.cv-body{padding:4px clamp(24px,4vw,44px) clamp(28px,4vw,44px);display:grid;gap:16px;align-content:start}
 .cv-body h2{font:800 italic clamp(2rem,4vw,2.8rem)/1.02 var(--f-display)}
 .cv-role{font:400 .84rem/1.4 var(--f-type);color:var(--rose);letter-spacing:.06em;text-transform:uppercase}
 .cv-quote{font:italic 600 1.2rem/1.4 var(--f-display);color:var(--paper);border-left:3px solid var(--blood-hi);padding-left:16px}
@@ -238,15 +244,14 @@ dialog::backdrop{background:rgba(8,4,3,.82);backdrop-filter:blur(3px)}
 .cv-long{display:grid;gap:12px}
 .cv-long p{max-width:66ch;color:var(--fg)}
 .cv-empty{color:var(--muted);font-style:italic}
-.close{position:absolute;top:12px;right:12px;z-index:5;background:var(--paper);color:var(--paper-ink);border:0;width:42px;height:42px;border-radius:50%;font:700 1.4rem/1 var(--f-body);cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+.close{flex-shrink:0;margin-left:auto;background:var(--paper);color:var(--paper-ink);border:0;width:42px;height:42px;border-radius:50%;font:700 1.4rem/1 var(--f-body);cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.5)}
 .cv-nav{display:flex;gap:10px;flex-wrap:wrap;padding-top:8px}
 .cv-nav button{background:none;border:1px solid var(--line);color:var(--fg);padding:9px 14px;border-radius:var(--r);font:500 .9rem/1 var(--f-body);cursor:pointer}
 .cv-nav button:hover{border-color:var(--rose)}
 @media (max-width:760px){
   dialog{max-height:calc(100dvh - 24px);overflow:auto}
-  .cv{grid-template-columns:1fr;max-height:none}
-  .cv-photo{aspect-ratio:4/4;min-height:0}
-  .cv-body{overflow:visible}
+  .cv{grid-template-columns:1fr}
+  .cv-photo{position:relative;height:auto;aspect-ratio:1/1;max-height:none}
 }
 </style>
 </head>
@@ -502,9 +507,10 @@ dialog::backdrop{background:rgba(8,4,3,.82);backdrop-filter:blur(3px)}
 </footer>
 
 <dialog id="cv" aria-labelledby="cvName">
-  <button class="close" id="cvClose" aria-label="Fechar currículo">×</button>
   <div class="cv">
     <div class="cv-photo" id="cvPhoto"></div>
+    <div class="cv-main">
+    <div class="cv-bar" id="cvBar"><span class="cv-mini" id="cvMini" aria-hidden="true"></span><button class="close" id="cvClose" aria-label="Fechar currículo">×</button><span class="cv-progress" id="cvProgress"></span></div>
     <div class="cv-body">
       <span class="cv-role" id="cvRole"></span>
       <h2 id="cvName"></h2>
@@ -514,6 +520,7 @@ dialog::backdrop{background:rgba(8,4,3,.82);backdrop-filter:blur(3px)}
       <div class="cv-long" id="cvLong"></div>
       <p class="cv-empty" id="cvEmpty" hidden>Currículo em breve.</p>
       <div class="cv-nav"><button id="cvPrev" type="button">← Anterior</button><button id="cvNext" type="button">Próximo →</button></div>
+    </div>
     </div>
   </div>
 </dialog>
@@ -577,7 +584,7 @@ dialog::backdrop{background:rgba(8,4,3,.82);backdrop-filter:blur(3px)}
     $('#cvPhoto').innerHTML = (e.img ? `<img src="img/${e.img}.jpg" alt="${esc(p.nome)}">` : `<span class="mono">${esc(initials(p.nome))}</span>`)
       + (e.kind === 'cast' ? `<span class="tag paper"><b>${esc(e.personagem)}</b></span>` : '');
     $('#cvRole').textContent = e.kind === 'cast' ? `Elenco · interpreta ${e.apelido || e.personagem}` : (rolesOf[e.pessoa] || [e.funcao]).join(' · ');
-    $('#cvName').textContent = p.nome;
+    $('#cvName').textContent = p.nome; $('#cvMini').textContent = e.kind === 'cast' ? `${p.nome} · ${e.personagem}` : p.nome;
     const q = $('#cvQuote'); q.hidden = e.kind !== 'cast'; if (e.kind === 'cast') q.textContent = `“${e.fala}”, ${e.personagem}`;
     const r = $('#cvResumo'); r.hidden = !p.resumo; r.textContent = p.resumo || '';
     const L = p.longo || [];
@@ -586,16 +593,33 @@ dialog::backdrop{background:rgba(8,4,3,.82);backdrop-filter:blur(3px)}
     $('#cvEmpty').hidden = !!(p.resumo || L.length);
     const one = currentList.length < 2;
     $('#cvPrev').hidden = one; $('#cvNext').hidden = one;
-    if (!dlg.open) dlg.showModal();
-    dlg.querySelector('.cv-body').scrollTop = 0; dlg.scrollTop = 0;
+    if (!dlg.open) { dlg.showModal(); document.body.classList.add('cv-open'); }
+    dlg.scrollTop = 0; syncBar();
     if (push !== false) history.replaceState(null, '', '#' + key);
   }
   function closeCV(){
     if (dlg.open) dlg.close();
   }
-  dlg.addEventListener('close', () => { if (location.hash.startsWith('#cv-')) history.replaceState(null,'','#' + currentPage()); });
+  dlg.addEventListener('close', () => { document.body.classList.remove('cv-open'); if (location.hash.startsWith('#cv-')) history.replaceState(null,'','#' + currentPage()); });
   dlg.addEventListener('click', ev => { if (ev.target === dlg) closeCV(); });
   $('#cvClose').addEventListener('click', closeCV);
+  /* Barra fixa do currículo: nome compacto e progresso de leitura */
+  function syncBar(){
+    const max = dlg.scrollHeight - dlg.clientHeight;
+    const y = dlg.scrollTop;
+    $('#cvProgress').style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
+    $('#cvBar').classList.toggle('stuck', y > $('#cvName').offsetTop + 40);
+  }
+  dlg.addEventListener('scroll', syncBar, { passive: true });
+  /* O rolar do mouse sobre o fundo escurecido também rola o currículo */
+  window.addEventListener('wheel', ev => {
+    if (!dlg.open) return;
+    const r = dlg.getBoundingClientRect();
+    const inside = ev.clientX >= r.left && ev.clientX <= r.right && ev.clientY >= r.top && ev.clientY <= r.bottom;
+    if (inside) return;
+    ev.preventDefault();
+    dlg.scrollTop += ev.deltaY;
+  }, { passive: false });
   function step(d){ if (!current) return; const i = currentList.findIndex(x => x.key === current.key); openCV(currentList[(i + d + currentList.length) % currentList.length].key); }
   $('#cvPrev').addEventListener('click', () => step(-1));
   $('#cvNext').addEventListener('click', () => step(1));
