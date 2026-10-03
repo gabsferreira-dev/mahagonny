@@ -31,4 +31,7 @@ Cada seção tem um endereço próprio: `#sinopse`, `#elenco`, `#producao`, `#fi
 
 ## Créditos
 
-Fotos de cena: Carlos Arantes. Design gráfico do espetáculo: Lívia Azevedo. Fotografia: Danilo César.
+- Fotografia de Carlos Arantes.
+- Design gráfico do espetáculo: Lívia Azevedo.
+- Fotografia: Danilo César.
+

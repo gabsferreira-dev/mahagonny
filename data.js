@@ -304,7 +304,7 @@ window.CREW = [
     { funcao: "Direção Musical e Composição", pessoa: "caio-vilela", img: "caio" },
     { funcao: "Direção de Movimento", pessoa: "nathan-ranhel", img: "nathan" },
     { funcao: "Assistente de Direção", pessoa: "joao-pedro-mendes", img: "joao-pedro" },
-    { funcao: "Orientação de Pesquisa", pessoa: "lara-hassum", img: null }
+    { funcao: "Orientação de Pesquisa", pessoa: "lara-hassum", img: "lara" }
   ]},
   { area: "Músicos", itens: [
     { funcao: "Regência", pessoa: "caio-vilela", img: "caio" },
@@ -330,7 +330,7 @@ window.CREW = [
     { funcao: "Produção Executiva", pessoa: "rafa-ramirez", img: null },
     { funcao: "Assistente de Produção", pessoa: "milena-oliveira", img: "milena" },
     { funcao: "Assistente de Produção", pessoa: "mikael-marceniuk", img: "mikael" },
-    { funcao: "Design Gráfico", pessoa: "livia-azevedo", img: null },
-    { funcao: "Fotografia", pessoa: "danilo-cesar", img: null }
+    { funcao: "Design Gráfico", pessoa: "livia-azevedo", img: "livia" },
+    { funcao: "Fotografia", pessoa: "danilo-cesar", img: "danilo" }
   ]}
 ];

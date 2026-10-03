@@ -219,6 +219,7 @@ p{margin:0}
 .foot .wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
 .foot img{height:34px;width:auto;opacity:.9}
 .foot p{color:var(--muted);font-size:.92rem;max-width:52ch}
+.foot-lines span{display:block}
 
 /* ---------- Currículo (modal) ---------- */
 dialog{border:0;padding:0;max-width:min(980px,calc(100vw - 32px));width:100%;max-height:calc(100dvh - 32px);background:var(--ink);color:var(--fg);border-radius:var(--r);box-shadow:0 30px 80px rgba(0,0,0,.7);overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--blood) transparent}
@@ -333,7 +334,7 @@ body.cv-open{overflow:hidden}
     </header>
     <div class="syn">
       <p class="syn-lead">Em uma cidade onde tudo pode ser comprado, personagens à deriva expõem o colapso de um sistema que transforma desejo, prazer e sobrevivência em mercadoria. Inspirado em <i>A Ascensão e Queda da Cidade de Mahagonny</i>, de Bertolt Brecht e Kurt Weill, o espetáculo do Grupo Gorki constrói uma fábula musical atravessada pelo grotesco, pela ruína e pela ironia, em que a canção surge como comentário crítico e ferramenta de enfrentamento. Entre a farsa e o ritual, o sagrado e o profano, Mahagonny revela-se menos como um lugar e mais como uma lógica: um mundo em que tudo tem preço, mas nada tem valor.</p>
-      <figure class="syn-photo"><img src="img/cena-30.jpg" alt="Stefany em cena, com casaco de oncinha, sob luz âmbar" loading="lazy"><figcaption class="credit">Foto de cena: Carlos Arantes</figcaption></figure>
+      <figure class="syn-photo"><img src="img/cena-30.jpg" alt="Stefany em cena, com casaco de oncinha, sob luz âmbar" loading="lazy"><figcaption class="credit">Fotografia de Carlos Arantes</figcaption></figure>
     </div>
 
     <div class="section-title"><h2>A montagem</h2></div>
@@ -443,8 +444,9 @@ body.cv-open{overflow:hidden}
       <p><b>Músicos:</b> Caio Vilela (regência), Eden Santos (piano), Izabela Ito (violoncelo) e Jão (violino).</p>
       <p><b>Concepção Cenográfica:</b> Beatriz Leite. <b>Cenógrafo e Cenotécnico:</b> Eliton Silva (Pita). <b>Concepção de Objetos Cênicos:</b> Ricardo Brabrikovisk e Eliton Silva. <b>Figurino:</b> Felipe Marques. <b>Visagismo:</b> Carol Camillo.</p>
       <p><b>Light Designer e Operação de Luz:</b> Gabriel Ferreira. <b>Operação de Som:</b> João Pedro Mendes.</p>
-      <p><b>Coordenação de Produção:</b> Giovanna Federzoni. <b>Produção Executiva:</b> Rafa Ramirez e Giovanna Federzoni. <b>Assistentes de Produção:</b> Milena Oliveira e Mikael Marceniuk. <b>Design Gráfico:</b> Lívia Azevedo. <b>Fotografia:</b> Danilo César. <b>Fotos de Cena:</b> Carlos Arantes.</p>
+      <p><b>Coordenação de Produção:</b> Giovanna Federzoni. <b>Produção Executiva:</b> Rafa Ramirez e Giovanna Federzoni. <b>Assistentes de Produção:</b> Milena Oliveira e Mikael Marceniuk. <b>Design Gráfico:</b> Lívia Azevedo. <b>Fotografia:</b> Danilo César.</p>
       <p><b>Realização e Produção:</b> Grupo Teatral Gorki. O espetáculo foi contemplado e desenvolvido com o acompanhamento do Programa de Qualificação em Artes (Teatro), realizado pela CULTSP PRO, Escolas de Profissionais da Cultura, sob orientação da artista e pesquisadora Lara Hassum.</p>
+      <span class="credit" style="color:inherit;opacity:.7;text-align:center">Fotografia de Carlos Arantes</span>
     </article>
   </div>
 </section>
@@ -501,7 +503,7 @@ body.cv-open{overflow:hidden}
 <footer class="foot">
   <div class="wrap">
     <img src="img/logo-mahagonny.png" alt="Mahagonny">
-    <p>Programa virtual de Mahagonny · Grupo Teatral Gorki, 2026. Fotos de cena: Carlos Arantes.</p>
+    <p class="foot-lines"><span>Programa virtual de Mahagonny.</span><span>Grupo Teatral Gorki, 2026.</span></p>
     <a class="btn-ticket" href="https://www.grupogorki.com.br/" target="_blank" rel="noopener">Ingressos ↗</a>
   </div>
 </footer>
