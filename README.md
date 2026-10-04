@@ -26,7 +26,7 @@ Cada seção tem um endereço próprio: `#sinopse`, `#elenco`, `#producao`, `#fi
 - **Links externos isolados:** usam `rel="noopener noreferrer"`, e o site envia ao destino apenas o domínio de origem.
 - **Tolerância a falhas:** se `data.js` não carregar, um aviso aparece e o resto do programa continua funcionando; uma foto ausente vira as iniciais da pessoa; uma pessoa citada sem cadastro é ignorada, sem quebrar a página.
 - **Compatibilidade:** funciona em navegadores mais antigos, inclusive sem suporte nativo à janela de currículo.
-- **Atualizações:** `index.html` chama os arquivos com um número de versão (`?v=AAAAMMDD`). Ao alterar `styles.css`, `app.js` ou `data.js`, troque esse número no `index.html` para que os visitantes recebam a versão nova, sem cache antigo.
+- **Atualizações:** `index.html` chama os arquivos com um número de versão (`?v=AAAAMMDDHHMM`). Ao alterar `styles.css`, `app.js` ou `data.js`, troque esse número no `index.html` para que os visitantes recebam a versão nova, sem cache antigo.
 
 ## Publicar no GitHub Pages
 
