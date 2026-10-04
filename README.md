@@ -7,13 +7,26 @@ Ingressos: https://www.grupogorki.com.br/
 ## Estrutura
 
 ```
-index.html   página única com as seções Início, Sinopse, Elenco, Produção, Ficha Técnica e Parceiros
+index.html   estrutura das seções: Início, Sinopse, Elenco, Produção, Ficha Técnica e Parceiros
+styles.css   aparência do site
+app.js       navegação, montagem de elenco e equipe, janela de currículos
 data.js      elenco, equipe e currículos (edite aqui para atualizar textos)
 img/         fotos, logos e favicon
+404.html     página para endereços inexistentes, que volta ao programa
 .nojekyll    faz o GitHub Pages servir os arquivos como estão
 ```
 
 Cada seção tem um endereço próprio: `#sinopse`, `#elenco`, `#producao`, `#ficha`, `#parceiros`. Cada currículo também: `#cv-alexandre-guidorizzi`, `#cv-gabriel-ferreira` etc.
+
+## Segurança e estabilidade
+
+- **Política de Segurança de Conteúdo (CSP):** o navegador só executa scripts do próprio site e só carrega estilos, fontes e imagens de origens autorizadas (o próprio site e o Google Fonts).
+- **Textos tratados como texto:** tudo o que vem de `data.js` é inserido como texto puro, nunca como código HTML.
+- **Endereços validados:** âncoras desconhecidas ou malformadas levam de volta à página inicial.
+- **Links externos isolados:** usam `rel="noopener noreferrer"`, e o site envia ao destino apenas o domínio de origem.
+- **Tolerância a falhas:** se `data.js` não carregar, um aviso aparece e o resto do programa continua funcionando; uma foto ausente vira as iniciais da pessoa; uma pessoa citada sem cadastro é ignorada, sem quebrar a página.
+- **Compatibilidade:** funciona em navegadores mais antigos, inclusive sem suporte nativo à janela de currículo.
+- **Atualizações:** `index.html` chama os arquivos com um número de versão (`?v=AAAAMMDD`). Ao alterar `styles.css`, `app.js` ou `data.js`, troque esse número no `index.html` para que os visitantes recebam a versão nova, sem cache antigo.
 
 ## Publicar no GitHub Pages
 
